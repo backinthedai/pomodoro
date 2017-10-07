@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <style>
         body {
             color: #fff;
@@ -21,13 +23,13 @@
             max-width: 460px;
             margin: 0 auto;
             position: relative;
-            align-items: stretch; 
+            align-items: stretch;
         }
 
         #content>* {
-            background: #3bbced;
+            /* background: #3bbced; */
+            background: #ff6347;  /* tomato red*/
             padding: 30px;
- 
         }
 
         header {
@@ -39,8 +41,8 @@
             grid-row: 2/ 4;
         }
 
-        .timer-container{
-            font-family:'Orbitron', sans-serif;
+        .timer-container {
+            font-family: 'Orbitron', sans-serif;
             font-size: 12vh;
             padding-top: 25px;
         }
@@ -59,15 +61,29 @@
             grid-column: 1 / 13;
         }
 
-
-        #myRange{
+        #myRange {
+            padding-top: 25px;
             width: 80%;
         }
 
+        .btn{
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+        }
+
+        /* #playpause::before {         
+            content: "\f04b";  
+            font-family: FontAwesome;
+            font-size: 35px;
+        } */
 
     </style>
 
-    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'> 
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -76,9 +92,14 @@
 
 
         <header>Time Savior</header>
-        <section><div class="timer-container" id="timer"></div></section>
+        <section>
+            <div class="timer-container" id="timer"></div>
+        </section>
         <div class="slider"><input type="range" min="0" max="64" value="25" id="myRange"></div>
-        <section class="player">play/pause</section>
+        <section class="player">
+            <button class="btn" value="0" id="startstop">Start</button>
+
+        </section>
         <footer>Designed & Coded by Dai Phung</footer>
 
     </div>
