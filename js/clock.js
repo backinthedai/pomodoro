@@ -14,12 +14,11 @@ timer.innerHTML = `${slider.value}:00`;
 slider.oninput = () => timer.innerHTML = `${slider.value}:00`;
 
 startstop.addEventListener("click", function () {
-
-    startstop.innerHTML = toggleIcon(startstop.innerHTML);
-
+    $('#startstop').find('i').toggleClass('fa-play fa-pause');
+    startstop.value = toggleIcon(startstop.value);
 });
 
-toggleIcon=(str)=> {
+toggleIcon = (str) => {
     let state; //state of the button
 
     if (str === "Start") {
@@ -39,7 +38,7 @@ toggleIcon=(str)=> {
 function countDown(str, counting) {
     //get the min and sec from str
     let min = parseInt(str.substr(0, str.indexOf(":")));
-    let sec = parseInt(str.substr(str.indexOf(":")+ 1, str.length - 1));
+    let sec = parseInt(str.substr(str.indexOf(":") + 1, str.length - 1));
 
     handler();
     id = window.setInterval(handler, 1000);
@@ -66,3 +65,4 @@ function countDown(str, counting) {
         }
     }
 }
+

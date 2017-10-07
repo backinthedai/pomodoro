@@ -28,8 +28,9 @@
 
         #content>* {
             /* background: #3bbced; */
-            background: #ff6347;  /* tomato red*/
-            padding: 30px;
+            background: #ff6347;
+            /* tomato red*/
+            padding: 20px;
         }
 
         header {
@@ -44,7 +45,7 @@
         .timer-container {
             font-family: 'Orbitron', sans-serif;
             font-size: 12vh;
-            padding-top: 25px;
+            padding-top: 35px;
         }
 
         .slider {
@@ -66,7 +67,7 @@
             width: 80%;
         }
 
-        .btn{
+        .btn {
             background-color: Transparent;
             background-repeat: no-repeat;
             border: none;
@@ -74,12 +75,15 @@
             overflow: hidden;
             outline: none;
         }
+      
+      .fa{
+          font-size: 55px;
+          color: white;
+      }
 
-        /* #playpause::before {         
-            content: "\f04b";  
-            font-family: FontAwesome;
-            font-size: 35px;
-        } */
+      .fa:active{
+          color: gray;
+      }
 
     </style>
 
@@ -97,12 +101,13 @@
         </section>
         <div class="slider"><input type="range" min="0" max="64" value="25" id="myRange"></div>
         <section class="player">
-            <button class="btn" value="0" id="startstop">Start</button>
-
+            <button class="btn" value="Start" id="startstop"><i class="fa fa-play"></i></button>
         </section>
         <footer>Designed & Coded by Dai Phung</footer>
 
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/moment.js"></script>
     <script src="js/clock.js"></script>
 
