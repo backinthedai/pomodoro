@@ -1,8 +1,11 @@
-let isOn = Boolean(true); //is Icon is true
+let isCounting = Boolean(false); //When the start button is click this becomes true
+let started = Boolean(false); //if the clock has started, stopped, started...etc
 
 let slider = document.getElementById("myRange");
 let timer = document.getElementById("timer");
 let startstop = document.getElementById("startstop");
+
+let id;  //id of setInterval
 
 //set default timer to display
 timer.innerHTML = `${slider.value}:00`;
@@ -10,40 +13,50 @@ timer.innerHTML = `${slider.value}:00`;
 // display changes base on slider
 slider.oninput = () => timer.innerHTML = `${slider.value}:00`;
 
-
-
 startstop.addEventListener("click", function () {
 
     startstop.innerHTML = toggleIcon(startstop.innerHTML);
 
 });
 
+toggleIcon=(str)=> {
+    let state; //state of the button
 
-function toggleIcon(str) {
     if (str === "Start") {
-        countDown(timer.innerHTML, startstop.innerHTML);
-        return "Stop";
+        state = "Stop";
+        isCounting = true;
     }
     else {
-        countDown(timer.innerHTML, startstop.innerHTML);
-        return "Start";
+        state = "Start";
+        isCounting = false;
     }
+
+    countDown(timer.innerHTML, isCounting);
+    return state;
 }
 
 
-function countDown(str, state) {
-
+function countDown(str, counting) {
+    //get the min and sec from str
     let min = parseInt(str.substr(0, str.indexOf(":")));
-    let sec = 59;
-    min--;
+    let sec = parseInt(str.substr(str.indexOf(":")+ 1, str.length - 1));
+
+    if( sec === 0){ // if seconds then set  
+        let sec = 59;
+        min--;
+    }
 
     handler();
-    var id = window.setInterval(handler, 1000);
+    id = window.setInterval(handler, 1000);
 
     function handler() {
+        if (counting === false) {
+            window.clearInterval(id);
+        }
+        else {
             timer.innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
 
-            if (timer.innerHTML === "00:00" || state === "Stop") {
+            if (timer.innerHTML === "00:00") {
                 window.clearInterval(id);
             }
 
@@ -53,11 +66,8 @@ function countDown(str, state) {
             }
             else {
                 sec--;
+                started = true;
             }
-
-    };
-
-   
-
-
+        }
+    }
 }
