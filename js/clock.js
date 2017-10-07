@@ -41,11 +41,6 @@ function countDown(str, counting) {
     let min = parseInt(str.substr(0, str.indexOf(":")));
     let sec = parseInt(str.substr(str.indexOf(":")+ 1, str.length - 1));
 
-    if( sec === 0){ // if seconds then set  
-        let sec = 59;
-        min--;
-    }
-
     handler();
     id = window.setInterval(handler, 1000);
 
