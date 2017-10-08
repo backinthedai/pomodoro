@@ -64,8 +64,9 @@ function countDown(str, counting) {
             window.clearInterval(id);
         }
         else {
-            timer.innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
+            timer.innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);          
 
+            //if time reach "0"
             if (timer.innerHTML === "00:00") {
                 window.clearInterval(id);
             }
@@ -73,6 +74,8 @@ function countDown(str, counting) {
             if (sec === 0) {
                 sec = 59;
                 min--;
+                
+                range.value = min; //move the slider automatical during countdown
             }
             else {
                 sec--;
