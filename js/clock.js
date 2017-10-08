@@ -73,9 +73,8 @@ function countDown(str, counting) {
 
             if (sec === 0) {
                 sec = 59;
-                min--;
-                
                 range.value = min; //move the slider automatical during countdown
+                min--;
             }
             else {
                 sec--;
