@@ -1,3 +1,22 @@
+$(document).ready(function () {
+    $("#startstop").find('i').addClass('fa fa-play');
+
+    // display changes base on slider
+    range.oninput = () => {
+        startstop.value = "Start";
+        timer.innerHTML = `${range.value}:00`;
+        if (id !== "") {
+            window.clearInterval(id); //stop the timer
+        }
+
+        if (startstop.value === "Start") {
+            $("#startstop").find('i').removeClass('fa fa-pause');
+            $("#startstop").find('i').addClass('fa fa-play');
+        }
+    };
+});
+
+
 let isCounting = Boolean(false); //When the start button is click this becomes true
 let started = Boolean(false); //if the clock has started, stopped, started...etc
 
@@ -9,13 +28,6 @@ let id;  //id of setInterval
 
 //set default timer to display
 timer.innerHTML = `${range.value}:00`;
-
-// display changes base on slider
-range.oninput = () => {
-    timer.innerHTML = `${range.value}:00`;
-    window.clearInterval(id); //stop the timer
-
-};
 
 startstop.addEventListener("click", function () {
     $(this).find('i').toggleClass('fa-play fa-pause');
@@ -38,7 +50,6 @@ startCountDown = (str) => {
     countDown(timer.innerHTML, isCounting);
     return state;
 }
-
 
 function countDown(str, counting) {
     //get the min and sec from str
