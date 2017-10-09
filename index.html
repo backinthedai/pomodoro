@@ -32,7 +32,7 @@
         }
 
         header {
-            grid-column: 1 / 13;            
+            grid-column: 1 / 13;
         }
 
         section {
@@ -54,6 +54,14 @@
         .player {
             grid-row: 5/ 6;
             grid-column: 1 / 13;
+            /* Nested controllers */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .player p {
+            padding: 20px;
+            margin: 0;
         }
 
         footer {
@@ -66,7 +74,6 @@
         }
 
         #myRange {
-            /* padding-top: 25px; */
             width: 80%;
             color: white;
         }
@@ -107,9 +114,16 @@
         <section>
             <div class="timer-container" id="timer"></div>
         </section>
-        <div class="slider"><input type="range" min="0" max="64" value="25" id="myRange"></div>
+        <div class="slider"><input type="range" min="0" max="60" value="25" id="myRange"></div>
         <section class="player">
-            <button class="btn" value="Start" id="startstop"><i class=""></i></button>
+            <p></p>
+            <p><button class="btn" value="Start" id="startstop"><i class=""></i></button></p>
+            <p>
+                <audio id="audio">
+                    <source src="media/tick.wav" type="audio/wav"/>
+                </audio>
+                <button class="btn" value="soundOn" id="audioIcon"><i class=""></i></button>
+            </p>
         </section>
         <footer>created by Dai Phung</footer>
 
