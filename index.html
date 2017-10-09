@@ -85,6 +85,7 @@
             cursor: pointer;
             overflow: hidden;
             outline: none;
+            color: white;
         }
 
         .fa {
@@ -92,14 +93,25 @@
             color: white;
         }
 
-        .fa:active {
+        .fa:active, .skipBtn:active{
             color: gray;
         }
 
-        .header {
+        .title {
             font-family: "Gadget", sans-serif;
             font-size: 20px;
-            text-align: left;
+            text-align: center;
+        }
+
+        .skipBtn {
+            border: 1 solid white;
+            color: white;
+            background: none;
+            border: none;
+            outline: none;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
         }
     </style>
     <link rel="stylesheet" href="css/styles.css">
@@ -110,19 +122,20 @@
 
     <div id="content">
 
-        <header class="header">Focusville</header>
+        <header class="title">Focusville</header>
         <section>
             <div class="timer-container" id="timer"></div>
         </section>
         <div class="slider"><input type="range" min="0" max="60" value="25" id="myRange"></div>
         <section class="player">
-            <p></p>
-            <p><button class="btn" value="Start" id="startstop"><i class=""></i></button></p>
             <p>
-                <audio id="audio">
-                    <source src="media/tick.wav" type="audio/wav"/>
-                </audio>
-                <button class="btn" value="soundOn" id="audioIcon"><i class=""></i></button>
+                <button class="btn" value="" id="gear"><i class="fa fa-cog"></i></button>
+            </p>
+            <p>
+                <button class="btn" value="Start" id="startstop"><i class=""></i></button>
+            </p>
+            <p>
+                <button class="skipBtn" value="" id="skip">Skip</button>
             </p>
         </section>
         <footer>created by Dai Phung</footer>
