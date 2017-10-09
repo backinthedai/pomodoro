@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $("#startstop").find('i').addClass('fa fa-play'); //display play icon
-    $("#audioIcon").find('i').addClass('fa fa-volume-up'); //display audio icon
 
     // display changes base on slider
     range.oninput = () => {
@@ -28,8 +27,9 @@ let started = Boolean(false); //if the clock has started, stopped, started...etc
 let range = document.getElementById("myRange");
 let timer = document.getElementById("timer");
 let startstop = document.getElementById("startstop"); //start and stop counter
-let audio = document.getElementById("audio"); //play the actual sound
-let audioIcon = document.getElementById("audioIcon"); // sound icon off and on
+
+soundPlayer = new Audio("media/tick.wav");
+
 
 let id;  //id of setInterval
 
@@ -87,14 +87,9 @@ function countDown(str, counting) {
                 sec--;                
                 started = true;
             }
-            audio.play(); //play sound on every tick           
+            soundPlayer.play(); //play sound on every tick           
         }
     }
 }
 
-audioIcon.addEventListener("click", function(){
-        audio.pause();
-        audio.currentTime = 0;
-        $("#playSound").find('i').removeClass('fa fa-volume-up'); 
-        $("#playSound").find('i').addClass('fa fa-volume-off'); //display audio icon off
-});
+
