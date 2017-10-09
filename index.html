@@ -20,21 +20,20 @@
             grid-template-columns: repeat(12, 1fr);
             grid-auto-rows: minmax(100px, auto);
             /* grid-gap: 10px; */
-            max-width: 460px;
+            max-width: 480px;
             margin: 0 auto;
             position: relative;
             align-items: stretch;
         }
 
         #content>* {
-            /* background: #3bbced; */
-            background: #ff6347;
-            /* tomato red*/
+            background: #ff403f;
             padding: 20px;
         }
 
         header {
             grid-column: 1 / 13;
+            
         }
 
         section {
@@ -44,7 +43,7 @@
 
         .timer-container {
             font-family: 'Orbitron', sans-serif;
-            font-size: 12vh;
+            font-size: 13.5vh;
             padding-top: 35px;
         }
 
@@ -63,8 +62,9 @@
         }
 
         #myRange {
-            padding-top: 25px;
+            /* padding-top: 25px; */
             width: 80%;
+            color: white;
         }
 
         .btn {
@@ -77,15 +77,21 @@
         }
 
         .fa {
-            font-size: 55px;
+            font-size: 50px;
             color: white;
         }
 
         .fa:active {
             color: gray;
         }
-    </style>
 
+        .header {
+            font-family: "Gadget", sans-serif;
+            font-size: 20px;
+            text-align: left;
+        }
+    </style>
+    <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 </head>
 
@@ -93,7 +99,7 @@
 
     <div id="content">
 
-        <header>Time Savior</header>
+        <header class="header">Focusville</header>
         <section>
             <div class="timer-container" id="timer"></div>
         </section>
