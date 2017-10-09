@@ -4,11 +4,16 @@ $(document).ready(function () {
     // display changes base on slider
     range.oninput = () => {
         startstop.value = "Start";
-        timer.innerHTML = `${range.value}:00`;
+        let rangeValue = range.value;
+
+        //add "0" if range display is < 10
+        timer.innerHTML = (rangeValue < 10) ? `0${rangeValue}:00` : `${rangeValue}:00`;
+
         if (id !== "") {
             window.clearInterval(id); //stop the timer
         }
 
+        // During drag, remove pause icon and replace with play
         if (startstop.value === "Start") {
             $("#startstop").find('i').removeClass('fa fa-pause');
             $("#startstop").find('i').addClass('fa fa-play');
@@ -64,7 +69,7 @@ function countDown(str, counting) {
             window.clearInterval(id);
         }
         else {
-            timer.innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);          
+            timer.innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
 
             //if time reach "0"
             if (timer.innerHTML === "00:00") {
