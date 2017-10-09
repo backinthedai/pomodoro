@@ -4,10 +4,9 @@ $(document).ready(function () {
     // display changes base on slider
     range.oninput = () => {
         startstop.value = "Start";
-        let rangeValue = range.value;
-
+        
         //add "0" if range display is < 10
-        timer.innerHTML = (rangeValue < 10) ? `0${rangeValue}:00` : `${rangeValue}:00`;
+        timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
 
         if (id !== "") {
             window.clearInterval(id); //stop the timer
