@@ -33,8 +33,17 @@ let startstop = document.getElementById("startstop"); //start and stop counter
 let soundPlayer = new Audio("media/tick.wav");
 
 let skip = document.getElementById("skip"); //Skip button event handler
+let goals = document.getElementById("goals");
+let focusCounter = 0;
+let breakCounter = 0;
+const rgbRed = "rgb(255, 64, 63)";
+const rgbBluePurp = "rgb(106, 130, 238)";
+const hexRed = '#FF403F';
+const hexBluePurp = '#6A82EE';
+
 let id;  //id of setInterval
 
+goals.innerHTML= "place_holder";
 //set default timer to display
 timer.innerHTML = `${range.value}:00`;
 
@@ -95,13 +104,13 @@ function countDown(str, counting) {
 }
 
 skip.addEventListener("click", function(e){
-    if($('#content > *').css('background-color') == "rgb(255, 64, 63)"){
-        $('#content > *').css('background-color', '#6A82EE');
+    if($('#content > *').css('background-color') == rgbRed){ //red
+        $('#content > *').css('background-color', hexBluePurp);
         range.value = breakLength; 
              
     }
-    else if($('#content > *').css('background-color') == "rgb(106, 130, 238)"){
-        $('#content > *').css('background-color', '#FF403F');
+    else if($('#content > *').css('background-color') == rgbBluePurp){ //blue-purple
+        $('#content > *').css('background-color', hexRed);
         range.value = focusLength;
     }
 
