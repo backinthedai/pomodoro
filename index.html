@@ -26,7 +26,7 @@
             align-items: stretch;
         }
 
-        #content > * {
+        #content>* {
             background: #FF403F;
             /* background: rgb(106, 130, 238); */
             padding: 20px;
@@ -89,19 +89,35 @@
             color: white;
         }
 
-        .fa {
-            font-size: 50px;
+        .fa{
             color: white;
+            font-size: 50px;
         }
 
-        .fa:active, .skipBtn:active{
+        .fa.fa-cog{
+            font-size: 20px;
+        }
+
+        .fa:active,
+        .skipBtn:active {
             color: gray;
         }
 
         .title {
+            /* Nested title and gears */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             font-family: "Gadget", sans-serif;
             font-size: 20px;
-            text-align: center;
+            text-align: left;
+        }
+
+        .title p {
+            margin: 0;
+        }
+
+        .title p.gears {
+            text-align: right;
         }
 
         .btn.skipBtn {
@@ -123,17 +139,29 @@
 
     <div id="content">
 
-        <header class="title">Focusville</header>
+        <header class="title">
+            <p>Focusville</p>
+            <p class="gears">
+                <button class="btn" value="" id="gear">
+                    <i class="fa fa-cog"></i>
+                </button>
+
+            </p>
+        </header>
         <section>
             <div class="timer-container" id="timer"></div>
         </section>
-        <div class="slider"><input type="range" min="0" max="60" value="25" id="myRange"></div>
+        <div class="slider">
+            <input type="range" min="0" max="60" value="25" id="myRange">
+        </div>
         <section class="player">
             <p>
-                <button class="btn" value="" id="gear"><i class="fa fa-cog"></i></button>
+                <label id="goals"></label>
             </p>
             <p>
-                <button class="btn" value="Start" id="startstop"><i class=""></i></button>
+                <button class="btn" value="Start" id="startstop">
+                    <i class=""></i>
+                </button>
             </p>
             <p>
                 <button class="btn skipBtn" value="" id="skip">Skip</button>
