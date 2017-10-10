@@ -23,14 +23,16 @@ $(document).ready(function () {
 
 let isCounting = Boolean(false); //When the start button is click this becomes true
 let started = Boolean(false); //if the clock has started, stopped, started...etc
+let breakLength = 5;
+let focusLength = 25;
 
 let range = document.getElementById("myRange");
 let timer = document.getElementById("timer");
 let startstop = document.getElementById("startstop"); //start and stop counter
 
-soundPlayer = new Audio("media/tick.wav");
+let soundPlayer = new Audio("media/tick.wav");
 
-
+let skip = document.getElementById("skip"); //Skip button event handler
 let id;  //id of setInterval
 
 //set default timer to display
@@ -91,5 +93,21 @@ function countDown(str, counting) {
         }
     }
 }
+
+skip.addEventListener("click", function(e){
+    if($('#content > *').css('background-color') == "rgb(255, 64, 63)"){
+        $('#content > *').css('background-color', '#6A82EE');
+        range.value = breakLength; 
+             
+    }
+    else if($('#content > *').css('background-color') == "rgb(106, 130, 238)"){
+        $('#content > *').css('background-color', '#FF403F');
+        range.value = focusLength;
+    }
+
+    timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
+    e.preventDefault();
+    startstop.click();    
+});
 
 
