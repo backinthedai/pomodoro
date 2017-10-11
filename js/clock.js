@@ -20,7 +20,6 @@ $(document).ready(function () {
     };
 });
 
-
 let isCounting = Boolean(false); //When the start button is click this becomes true
 let started = Boolean(false); //if the clock has started, stopped, started...etc
 let breakLength = 5;
@@ -51,7 +50,6 @@ startstop.addEventListener("click", function () {
     $(this).find('i').toggleClass('fa-play fa-pause');
     startstop.value = startCountDown(startstop.value);
 });
-
 
 startCountDown = (str) => {
     let state; //state of the button
@@ -104,12 +102,12 @@ function countDown(str, counting) {
 }
 
 skip.addEventListener("click", function(e){
-    if($('#content > *').css('background-color') == rgbRed){ //red
+    if($('#content > *').css('background-color') == rgbRed){ 
         $('#content > *').css('background-color', hexBluePurp);
         range.value = breakLength; 
              
     }
-    else if($('#content > *').css('background-color') == rgbBluePurp){ //blue-purple
+    else if($('#content > *').css('background-color') == rgbBluePurp){ 
         $('#content > *').css('background-color', hexRed);
         range.value = focusLength;
     }
