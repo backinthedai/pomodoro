@@ -124,7 +124,15 @@
             text-align: center;
             line-height: 50px;
             font-size: 20px;
-            margin-top:20px;
+        }
+
+        .rightBtns{
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .soundBtn{
+            padding-bottom: 20px;
         }
     </style>
     <link rel="stylesheet" href="css/styles.css">
@@ -159,8 +167,8 @@
                     <i class=""></i>
                 </button>
             </p>
-            <p>
-                <button class="btn soundBtn" value="" id="sound"><i class="fa fa-volume-up"></i></button>
+            <p class="rightBtns">
+                <button class="btn soundBtn" value="" id="sound"><i class=""></i></button>
                 <button class="btn skipBtn" value="" id="skip">Break</button>
             </p>
         </section>
