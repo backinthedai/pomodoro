@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended" rel="stylesheet">
     <style>
         body {
             color: #FFFFFF;
@@ -28,8 +29,6 @@
 
         #content>* {
             background: #FF403F;
-            /* background: rgb(106, 130, 238); */
-            padding: 20px;
         }
 
         header {
@@ -44,7 +43,6 @@
         .timer-container {
             font-family: 'Orbitron', sans-serif;
             font-size: 13.5vh;
-            padding-top: 35px;
         }
 
         .slider {
@@ -67,11 +65,7 @@
 
         footer {
             grid-column: 1 / 13;
-
-            /* move created by Dai Phung down */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 10px;
         }
 
         #myRange {
@@ -110,6 +104,7 @@
             font-family: "Gadget", sans-serif;
             font-size: 20px;
             text-align: left;
+            padding: 10px;
         }
 
         .title p {
@@ -129,6 +124,7 @@
             text-align: center;
             line-height: 50px;
             font-size: 20px;
+            margin-top:20px;
         }
     </style>
     <link rel="stylesheet" href="css/styles.css">
@@ -164,7 +160,8 @@
                 </button>
             </p>
             <p>
-                <button class="btn skipBtn" value="" id="skip">Skip</button>
+                <button class="btn soundBtn" value="" id="sound"><i class="fa fa-volume-up"></i></button>
+                <button class="btn skipBtn" value="" id="skip">Break</button>
             </p>
         </section>
         <footer>created by Dai Phung</footer>
