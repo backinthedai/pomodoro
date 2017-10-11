@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#startstop").find('i').addClass('fa fa-play'); //display play icon
-    //$("#sound").find('i').addClass('fa fa-volume-up'); //display sound icon
+    $("#sound").find('i').addClass('fa fa-volume-up'); //display sound icon
 
     // display changes base on slider
     range.oninput = () => {
