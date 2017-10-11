@@ -2,6 +2,11 @@ $(document).ready(function () {
     $("#startstop").find('i').addClass('fa fa-play'); //display play icon
     $("#sound").find('i').addClass('fa fa-volume-up'); //display sound icon
 
+    var iOS = ['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform) >= 0;
+
+    if(iOS === true){
+        $("#sound").prop('disabled', true);
+    }
     // display changes base on slider
     range.oninput = () => {
         startstop.value = "Start";
@@ -54,7 +59,6 @@ timer.innerHTML = `${range.value}:00`;
 
 startstop.addEventListener("click", function () {
     $(this).find('i').toggleClass('fa-play fa-pause');
-    console.log(startstop.value);
     startstop.value = startCountDown(startstop.value);
 });
 
