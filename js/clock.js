@@ -47,13 +47,14 @@ const hexBluePurp = '#6A82EE';
 
 let id;  //id of setInterval
 
-goals.innerHTML= `${sessionCounter}/${goalCounter}`;
+goals.innerHTML = `${sessionCounter}/${goalCounter}`;
 
 //set default timer to display
 timer.innerHTML = `${range.value}:00`;
 
 startstop.addEventListener("click", function () {
     $(this).find('i').toggleClass('fa-play fa-pause');
+    console.log(startstop.value);
     startstop.value = startCountDown(startstop.value);
 });
 
@@ -90,6 +91,7 @@ function countDown(str, counting) {
 
             //if time reach "0"
             if (timer.innerHTML === "00:00") {
+
                 window.clearInterval(id);
             }
 
@@ -99,7 +101,7 @@ function countDown(str, counting) {
                 min--;
             }
             else {
-                sec--;                
+                sec--;
                 started = true;
             }
             soundPlayer.play(); //play sound on every tick           
@@ -107,31 +109,37 @@ function countDown(str, counting) {
     }
 }
 
-skip.addEventListener("click", function(e){
-    if($('#content > *').css('background-color') == rgbRed){ 
+skip.addEventListener("click", function (e) {
+    window.clearInterval(id);
+    if ($('#content > *').css('background-color') == rgbRed) {
         $('#content > *').css('background-color', hexBluePurp);
-        range.value = breakLength; 
-             
+        range.value = breakLength;
+        
+
     }
-    else if($('#content > *').css('background-color') == rgbBluePurp){ 
+    else if ($('#content > *').css('background-color') == rgbBluePurp) {
         $('#content > *').css('background-color', hexRed);
         range.value = focusLength;
     }
 
+    $("#startstop").find('i').removeClass('fa fa-pause');
+    $("#startstop").find('i').addClass('fa fa-play');
+    
     timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
-    window.clearInterval(id);
+    startstop.value = "Start";
+    
     // e.preventDefault();
-    // startstop.click();    
+    //  startstop.click();    
 });
 
-sound.addEventListener("click", function(){
+sound.addEventListener("click", function () {
 
-    if(soundPlayer.volume){
+    if (soundPlayer.volume) {
         soundPlayer.volume = false;
         $("#sound").find('i').removeClass('fa fa-volume-up');
         $("#sound").find('i').addClass('fa fa-volume-off');
     }
-    else{
+    else {
         soundPlayer.volume = true;
         $("#sound").find('i').removeClass('fa fa-volume-off');
         $("#sound").find('i').addClass('fa fa-volume-up');
