@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#startstop").find('i').addClass('fa fa-play'); //display play icon
+    $("#sound").find('i').addClass('fa fa-volume-up'); //display sound icon
 
     // display changes base on slider
     range.oninput = () => {
@@ -28,6 +29,7 @@ let focusLength = 25;
 let range = document.getElementById("myRange");
 let timer = document.getElementById("timer");
 let startstop = document.getElementById("startstop"); //start and stop counter
+let sound = document.getElementById("sound"); //sound icon button
 
 let soundPlayer = new Audio("media/tick.wav");
 
@@ -115,6 +117,20 @@ skip.addEventListener("click", function(e){
     timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
     e.preventDefault();
     startstop.click();    
+});
+
+sound.addEventListener("click", function(){
+
+    if(soundPlayer.volume){
+        soundPlayer.volume = false;
+        $("#sound").find('i').removeClass('fa fa-volume-up');
+        $("#sound").find('i').addClass('fa fa-volume-off');
+    }
+    else{
+        soundPlayer.volume = true;
+        $("#sound").find('i').removeClass('fa fa-volume-off');
+        $("#sound").find('i').addClass('fa fa-volume-up');
+    }
 });
 
 
