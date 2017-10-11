@@ -37,6 +37,9 @@ let skip = document.getElementById("skip"); //Skip button event handler
 let goals = document.getElementById("goals");
 let focusCounter = 0;
 let breakCounter = 0;
+let sessionCounter = 0;
+let goalCounter = 12;
+
 const rgbRed = "rgb(255, 64, 63)";
 const rgbBluePurp = "rgb(106, 130, 238)";
 const hexRed = '#FF403F';
@@ -44,7 +47,8 @@ const hexBluePurp = '#6A82EE';
 
 let id;  //id of setInterval
 
-goals.innerHTML= "place_holder";
+goals.innerHTML= `${sessionCounter}/${goalCounter}`;
+
 //set default timer to display
 timer.innerHTML = `${range.value}:00`;
 
@@ -115,8 +119,9 @@ skip.addEventListener("click", function(e){
     }
 
     timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
-    e.preventDefault();
-    startstop.click();    
+    window.clearInterval(id);
+    // e.preventDefault();
+    // startstop.click();    
 });
 
 sound.addEventListener("click", function(){
