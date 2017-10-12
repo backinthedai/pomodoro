@@ -203,7 +203,7 @@ timer.addEventListener("click", function(){
 
     if( fontFam === 'Orbitron'){
         $(".timer-container").attr('style', 'font-family:"Libre Barcode 39 Extended"');
-        $(".timer-container").css('font-size', '130px');
+        $(".timer-container").css('font-size', '110px');
     }
     else{
         $(".timer-container").attr('style', 'font-family:"Orbitron"');
