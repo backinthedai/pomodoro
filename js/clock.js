@@ -34,7 +34,7 @@ let breakLength = 5;
 let focusLength = 25;
 let goalCounter = 6;
 
-let range = document.getElementById("myRange")
+let range = document.getElementById("myRange");
 let timer = document.getElementById("timer");
 let startstop = document.getElementById("startstop"); //start and stop counter
 let sound = document.getElementById("sound"); //sound icon button
@@ -129,7 +129,6 @@ function countDown(str, counting) {
 }
 
 skip.addEventListener("click", function (e) {
-    window.clearInterval(id);
     if ($('#content > *').css('background-color') == rgbRed) {
         $('#content > *').css('background-color', hexBluePurp);
         range.value = breakLength;
@@ -138,16 +137,18 @@ skip.addEventListener("click", function (e) {
         $('#content > *').css('background-color', hexRed);
         range.value = focusLength;      
     }
-
+    
     $("#startstop").find('i').removeClass('fa fa-pause');
     $("#startstop").find('i').addClass('fa fa-play');
-
+    
     timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
     startstop.value = "Start";
+    window.clearInterval(id);  //stop the current timer counting
 
     // e.preventDefault();
     if (isTimerZero) { //if timer is "00:00" then autoplay the Play button
         startstop.click();
+        isTimerZero = false;
     }
 });
 
