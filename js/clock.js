@@ -198,3 +198,15 @@ gear.addEventListener("click", function(){
 });
 
 
+timer.addEventListener("click", function(){
+    var fontFam = $(".timer-container").css('font-family');
+
+    if( fontFam === 'Orbitron'){
+        $(".timer-container").attr('style', 'font-family:"Libre Barcode 39 Extended"');
+        $(".timer-container").css('font-size', '130px');
+    }
+    else{
+        $(".timer-container").attr('style', 'font-family:"Orbitron"');
+    }
+});
+
