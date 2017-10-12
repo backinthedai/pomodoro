@@ -58,9 +58,18 @@ let id;  //id of setInterval
 timer.innerHTML = `${range.value}:00`;
 
 
-//set display goal
-goal.innerHTML = `${sessionCounter}/${goalLength}`;
+//display goal
+goal.innerHTML = `${sessionCounter} / ${goalLength}`;
 
+//set goal to achieve
+goal.addEventListener('click', function () {
+    if (goalLength > 11) {
+        goalLength = 5;
+    } 
+        goal.innerHTML = `${sessionCounter} / ${goalLength += 1}`;
+});
+
+// Play button
 startstop.addEventListener("click", function () {
     $(this).find('i').toggleClass('fa-play fa-pause');
     startstop.value = startCountDown(startstop.value);
