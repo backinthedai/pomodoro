@@ -123,7 +123,7 @@ function countDown(str, counting) {
 
             //if time reach "0"
             if (timer.innerHTML === "00:00" && $('#content > *').css('background-color') == rgbRed) {
-                goal.innerHTML = `${sessionCounter += 1}/${goalLength}`;
+                goal.innerHTML = `${sessionCounter += 1} / ${goalLength}`;
                 isTimerZero = true;
 
                 if (sessionCounter === goalLength) {
