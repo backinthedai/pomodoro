@@ -32,7 +32,7 @@ let started = Boolean(false); //if the clock has started, stopped, started...etc
 let isTimerZero = Boolean(false); //when timer is "00:00";
 let breakLength = 5;
 let focusLength = 25;
-let goalCounter = 6;
+let goalLength = 6;
 
 let range = document.getElementById("myRange");
 let timer = document.getElementById("timer");
@@ -55,10 +55,11 @@ const hexBluePurp = '#6A82EE';
 let id;  //id of setInterval
 
 //set default timer to display
-timer.innerHTML = `${range.value}:00`;  
+timer.innerHTML = `${range.value}:00`;
+
 
 //set display goal
-goal.innerHTML = `${sessionCounter}/${goalCounter}`;    
+goal.innerHTML = `${sessionCounter}/${goalLength}`;
 
 startstop.addEventListener("click", function () {
     $(this).find('i').toggleClass('fa-play fa-pause');
@@ -97,20 +98,22 @@ function countDown(str, counting) {
         else {
 
             timer.innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
+            range.value = min;
 
             //if time reach "0"
             if (timer.innerHTML === "00:00" && $('#content > *').css('background-color') == rgbRed) {
-                goal.innerHTML = `${sessionCounter += 1}/${goalCounter}`;
+                goal.innerHTML = `${sessionCounter += 1}/${goalLength}`;
                 isTimerZero = true;
 
-                if (sessionCounter === goalCounter) {
+                if (sessionCounter === goalLength) {
                     window.clearInterval(id);
                 }
-                else {                   
+                else {
                     skip.click();
                 }
             }
             else if (timer.innerHTML === "00:00" && $('#content > *').css('background-color') == rgbBluePurp) {
+                isTimerZero = true;
                 skip.click();
             }
 
@@ -135,20 +138,22 @@ skip.addEventListener("click", function (e) {
     }
     else if ($('#content > *').css('background-color') == rgbBluePurp) {
         $('#content > *').css('background-color', hexRed);
-        range.value = focusLength;      
+        range.value = focusLength;
     }
-    
+
     $("#startstop").find('i').removeClass('fa fa-pause');
     $("#startstop").find('i').addClass('fa fa-play');
-    
+
     timer.innerHTML = (range.value < 10) ? `0${range.value}:00` : `${range.value}:00`;
     startstop.value = "Start";
-    window.clearInterval(id);  //stop the current timer counting
 
+
+    window.clearInterval(id);  //stop the current timer counting
     // e.preventDefault();
     if (isTimerZero) { //if timer is "00:00" then autoplay the Play button
-        startstop.click();
         isTimerZero = false;
+        range.value = breakLength;
+        startstop.click();
     }
 });
 
