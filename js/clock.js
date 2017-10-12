@@ -24,8 +24,19 @@ $(document).ready(function () {
             $("#startstop").find('i').removeClass('fa fa-pause');
             $("#startstop").find('i').addClass('fa fa-play');
         }
+
+        setStateRange(range.value);
     };
 });
+
+function setStateRange(num){
+    if ($('#content > *').css('background-color') == rgbRed) {
+        focusLength = num;    
+    }
+    else if ($('#content > *').css('background-color') == rgbBluePurp) {
+        breakLength = num;
+    }
+}
 
 let isCounting = Boolean(false); //When the start button is click this becomes true
 let started = Boolean(false); //if the clock has started, stopped, started...etc
