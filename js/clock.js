@@ -54,6 +54,8 @@ let soundPlayer = new Audio("media/tick.wav");
 
 let skip = document.getElementById("skip"); //Skip button event handler
 let goal = document.getElementById("goal");
+let gear = document.getElementById("gear");
+
 let focusCounter = 0;
 let breakCounter = 0;
 let sessionCounter = 0;
@@ -67,7 +69,6 @@ let id;  //id of setInterval
 
 //set default timer to display
 timer.innerHTML = `${range.value}:00`;
-
 
 //display goal
 goal.innerHTML = `${sessionCounter} / ${goalLength}`;
@@ -189,6 +190,11 @@ sound.addEventListener("click", function () {
         $("#sound").find('i').removeClass('fa fa-volume-off');
         $("#sound").find('i').addClass('fa fa-volume-up');
     }
+});
+
+//reload page to default settings
+gear.addEventListener("click", function(){
+    location.reload();
 });
 
 
