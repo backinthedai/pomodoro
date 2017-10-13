@@ -129,8 +129,7 @@ function countDown(str, counting) {
 
                 if (sessionCounter === goalLength) {
                     window.clearInterval(id);
-                    let goalDone = document.getElementById("goal-done");
-                    goalDone.innerHTML = "Well Done";
+                    $("#goal-done").find('i').addClass('fa fa-fort-awesome');
                 }
                 else {
                     skip.click();
