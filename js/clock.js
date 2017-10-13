@@ -49,12 +49,12 @@ let range = document.getElementById("myRange");
 let timer = document.getElementById("timer");
 let startstop = document.getElementById("startstop"); //start and stop counter
 let sound = document.getElementById("sound"); //sound icon button
-
 let soundPlayer = new Audio("media/tick.wav");
 
 let skip = document.getElementById("skip"); //Skip button event handler
 let goal = document.getElementById("goal");
 let gear = document.getElementById("gear");
+
 
 let focusCounter = 0;
 let breakCounter = 0;
@@ -128,6 +128,8 @@ function countDown(str, counting) {
 
                 if (sessionCounter === goalLength) {
                     window.clearInterval(id);
+                    let goalDone = document.getElementById("goal-done");
+                    goalDone.innerHTML = "Well Done";
                 }
                 else {
                     skip.click();
@@ -198,7 +200,6 @@ sound.addEventListener("click", function () {
 gear.addEventListener("click", function(){
     location.reload();
 });
-
 
 timer.addEventListener("click", function(){
     var fontFam = $(".timer-container").css('font-family');
