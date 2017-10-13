@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#startstop").find('i').addClass('fa fa-play'); //display play icon
     $("#sound").find('i').addClass('fa fa-volume-up'); //display sound icon
+    $("#skip").find('i').addClass('fa fa-coffee'); //display sound icon
 
     let iOS = ['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform) >= 0; //check if on iDevice
 
@@ -157,12 +158,15 @@ function countDown(str, counting) {
 skip.addEventListener("click", function (e) {
     if ($('#content > *').css('background-color') == rgbRed) {
         $('#content > *').css('background-color', hexBluePurp);
-        skip.innerHTML = "Focus";
+        $("#skip").find('i').removeClass('fa fa-coffee');
+        $("#skip").find('i').addClass('fa fa-code');
+
         range.value = breakLength;
     }
     else if ($('#content > *').css('background-color') == rgbBluePurp) {
         $('#content > *').css('background-color', hexRed);
-        skip.innerHTML = "Break";
+        $("#skip").find('i').removeClass('fa fa-code');
+        $("#skip").find('i').addClass('fa fa-coffee');
         range.value = focusLength;
     }
 
