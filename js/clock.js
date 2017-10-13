@@ -155,10 +155,12 @@ function countDown(str, counting) {
 skip.addEventListener("click", function (e) {
     if ($('#content > *').css('background-color') == rgbRed) {
         $('#content > *').css('background-color', hexBluePurp);
+        skip.innerHTML = "Focus";
         range.value = breakLength;
     }
     else if ($('#content > *').css('background-color') == rgbBluePurp) {
         $('#content > *').css('background-color', hexRed);
+        skip.innerHTML = "Break";
         range.value = focusLength;
     }
 
