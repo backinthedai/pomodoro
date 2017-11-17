@@ -41,7 +41,8 @@
         }
 
         .timer-container {
-            font-family: 'Orbitron'; /* 'Libre Barcode 39 Extended'*/
+            font-family: 'Orbitron';
+            /* 'Libre Barcode 39 Extended'*/
             font-size: 13.5vh;
         }
 
@@ -96,7 +97,8 @@
             font-size: 20px;
         }
 
-        .fa.fa-code, .fa.fa-coffee {
+        .fa.fa-code,
+        .fa.fa-coffee {
             font-size: 40px;
         }
 
@@ -143,13 +145,18 @@
             padding-bottom: 20px;
         }
 
-        .soundBtn:disabled {  /* audio does not work on iDevices, making it disapeared */
+        .soundBtn:disabled {
+            /* audio does not work on iDevices, making it disapeared */
             display: none;
         }
 
-        .goal-child{
+        .goal-child {
             font-size: 19px;
             margin: 0px, 15px, 0px, 15px;
+        }
+
+        .fa-github {
+            font-size: 20px;
         }
     </style>
     <link rel="stylesheet" href="css/styles.css">
@@ -181,7 +188,9 @@
                 <br>
                 <button class="btn goal-child" id="goal"></button>
                 <br>
-                <label id="goal-done"><i class=""></i></label>
+                <label id="goal-done">
+                    <i class=""></i>
+                </label>
             </p>
             <p>
                 <button class="btn" value="Start" id="startstop">
@@ -192,10 +201,17 @@
                 <button class="btn soundBtn" value="" id="sound">
                     <i class=""></i>
                 </button>
-                <button class="btn skipBtn" value="" id="skip"><i class=""></i></button>
+                <button class="btn skipBtn" value="" id="skip">
+                    <i class=""></i>
+                </button>
             </p>
         </section>
-        <footer>created by Dai Phung</footer>
+        <footer>
+            <br>By Dai Phung
+            <a href="https://github.com/backinthedai/pomodoro" target="_blank">
+                <i class="fa fa-github github" id="github" aria-hidden="true"></i>
+            </a>
+        </footer>
 
     </div>
 
